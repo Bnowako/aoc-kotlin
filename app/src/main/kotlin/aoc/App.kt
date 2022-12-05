@@ -18,5 +18,5 @@ class App {
 fun main() {
     val day5 = Day5();
 
-    println(day5.result())
+    day5.result(true)
 }
