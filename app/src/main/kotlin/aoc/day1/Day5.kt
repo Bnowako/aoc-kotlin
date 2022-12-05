@@ -10,9 +10,20 @@ class Day5 {
     fun result(isRealTry: Boolean = false): Int {
         val lines = File(if (isRealTry) realDataPath else testFilePath).useLines { it.toList() }
         val stacks = parseLines(lines)
-
+        val commands = parseCommands(lines)
 
         return 4
+    }
+
+    private fun parseCommands(lines: List<String>): List<List<Int>> {
+        val indexOfSeparator = lines.indexOfFirst { it == "" }
+        val output = mutableListOf<List<Int>>()
+        for(i in indexOfSeparator + 1 until  lines.lastIndex) {
+            val curLine = lines[i]
+            val regex = """[A-Za-z]+""".toRegex()
+            val a = curLine.replace(regex, "")
+        }
+        return listOf()
     }
 
     fun parseLines(lines: List<String>): MutableList<MutableList<Char>> {
