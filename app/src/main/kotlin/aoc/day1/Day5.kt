@@ -9,6 +9,13 @@ class Day5 {
 
     fun result(isRealTry: Boolean = false): Int {
         val lines = File(if (isRealTry) realDataPath else testFilePath).useLines { it.toList() }
+        val stacks = parseLines(lines)
+
+
+        return 4
+    }
+
+    fun parseLines(lines: List<String>): MutableList<MutableList<Char>> {
         val indexOfSeparator = lines.indexOfFirst { it == "" }
         val list = mutableListOf<MutableList<Char>>()
         for (i in indexOfSeparator - 2 downTo 0) {
@@ -26,9 +33,7 @@ class Day5 {
                 curList.add(char)
             }
         }
-
-
-        return 4
+        return list
     }
 
 
