@@ -13,15 +13,15 @@ class Day5 {
         val list = mutableListOf<MutableList<Char>>()
         for (i in indexOfSeparator - 2 downTo 0) {
             val line = lines[i]
-            for (j in 1x until line.lastIndex) {
-                if (j + j * 4 >= line.lastIndex) break
-                var curList = list.getOrNull(j - 1)
+            for (j in 1 until line.lastIndex step 4) {
+                val listIdx = if (j == 1) 0 else (j - 1) / 4
+                var curList = list.getOrNull(listIdx)
                 if (curList == null) {
                     list.add(mutableListOf())
-                    curList = list[j - 1]
+                    curList = list[listIdx]
                 }
 
-                val char = line[j + j * 4]
+                val char = line[j]
                 if (char == ' ') continue
                 curList.add(char)
             }
