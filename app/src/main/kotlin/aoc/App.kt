@@ -3,10 +3,7 @@
  */
 package aoc
 
-import aoc.day1.Day2
-import aoc.day1.Day3
-import aoc.day1.Day4
-import aoc.day1.Day5
+import aoc.day1.*
 
 class App {
     val greeting: String
@@ -16,7 +13,7 @@ class App {
 }
 
 fun main() {
-    val day5 = Day5();
+    val day6 = Day6();
 
-    day5.result(true)
+    day6.result(false)
 }
