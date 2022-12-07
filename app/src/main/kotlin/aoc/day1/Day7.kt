@@ -44,8 +44,14 @@ class Day7 {
                 }
             }
         }
-        val sum = root.traverseAndSum()
-        println(sum)
+
+        val occupiedSpace = root.size
+        val total = 70000000
+        val needed = 30000000
+        val unused = total - occupiedSpace
+        val weHaveToFree = needed - unused
+        val smallest = root.findSmallestPossible(weHaveToFree, root)
+        println(smallest?.size)
         return 1
     }
 
@@ -74,6 +80,19 @@ class Day7 {
                 }
             }
             return sum;
+        }
+
+        fun findSmallestPossible(weHaveToFree: Int, root: Node): Node {
+            var bestOption = root
+            children.values.forEach {
+                if(it.children.isNotEmpty()) {
+                    if(it.size >= weHaveToFree && it.size < bestOption.size) {
+                        bestOption = it
+                    }
+                    bestOption = it.findSmallestPossible(weHaveToFree, bestOption)
+                }
+            }
+            return bestOption
         }
 
     }
