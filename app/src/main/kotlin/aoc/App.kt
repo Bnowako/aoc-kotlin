@@ -15,6 +15,6 @@ class App {
 fun main() {
     val day7 = Day7();
 
-    day7.result()
+    day7.result(true)
 
 }
